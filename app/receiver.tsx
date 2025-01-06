@@ -23,7 +23,7 @@ const ReceiverScreen = () => {
   const [isReceiverNetworkSetFinished, setIsReceiverNetworkSetFinished] =
     useAtom(isReceiverNetworkSetFinishedAtom);
 
-  const isSenderIpAddress = true
+  const isSenderIpAddress = !!connectedWifiIpAddress;
 
   const steps = {
     'Receiver 접속': {
@@ -32,7 +32,7 @@ const ReceiverScreen = () => {
     'wifi 선택': { complete: !!selectedWifiSSID },
     'wifi 비밀번호 입력': { complete: isReceiverNetworkSetFinished },
     '인터넷이 되는 wifi에 연결': {
-      complete: !isSenderIpAddress,
+      complete: isSenderIpAddress,
     },
   };
 
