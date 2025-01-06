@@ -15,7 +15,11 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true
+      "distribution": "store",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk" // Release 모드 APK
+      }
     }
   },
   "submit": {

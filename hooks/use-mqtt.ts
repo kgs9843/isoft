@@ -26,7 +26,6 @@ const useMqtt = () => {
       pass: process.env.EXPO_PUBLIC_MQTT_PASSWORD || 'password',
     })
       .then((mqttClient) => {
-        console.log(`${connectStatus.device?.name}`);
         mqttClient.on('closed', () => {
           console.log('MQTT client closed');
           setIsMQTTConnected(false);
@@ -38,7 +37,6 @@ const useMqtt = () => {
             text1: 'MQTT 에러 발생',
             text2: msg,
           });
-
           console.log('[MQTT error]', msg);
 
           setIsMQTTConnected(false);

@@ -49,6 +49,7 @@ const WifiPasswordFormStep = () => {
     },
     onError: (error) => {
       setIsReceiverNetworkSetFinished(false);
+      console.error('Error details:', error); // 오류 세부 정보 로그 출력
       Toast.show({
         type: 'error',
         text1: '와이파이 설정 실패',
@@ -58,6 +59,7 @@ const WifiPasswordFormStep = () => {
   });
 
   const onSubmit: SubmitHandler<TPostSsidReqDto> = (data) => {
+    console.log('Submitting data:', data); // 요청 데이터 로그 출력
     mutate({
       ...data,
       topic: data.topic.toUpperCase(),
